@@ -11,13 +11,29 @@ def get_students(request):
     for student in students: 
         student_data.append({
             "name": student.name, 
-            "grade": student.grade
+            "grade": student.grade,  
+            "school": student.school.name,            
         })
 
     data = {
         "students": student_data, 
     }
 
-
     return JsonResponse(data, safe=False)
 
+
+def get_schools(request): 
+    schools = School.objects.all()
+    
+    school_data = []
+    for school in schools: 
+        school_data.append({
+            "name": school.name, 
+            "location": school.location, 
+        })
+        
+    data = {
+        "schools": school_data
+    }
+    
+    return JsonResponse(data, safe=False)
