@@ -17,7 +17,7 @@ class School(models.Model):
     
     
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
 
 
@@ -31,4 +31,4 @@ class Student(models.Model):
     reg_date = models.DateField(default=date.today)
         
     def __str__(self):
-        return f"({self.name}, {self.school})"
+        return f"({self.name}, {self.reg_date})"
