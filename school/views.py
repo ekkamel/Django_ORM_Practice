@@ -73,16 +73,15 @@ def get_filter_options(request):
 
 def student_grade_chart(request, year): 
     grades = Student.objects.filter(reg_date__year=year)
-    grouped_grades = grades.values("grade").annotate(count=Count("id"))\
-        .values("grade", "count").order_by("grade") 
+    grouped_grades = Student.objects.values('grade').annotate(count=Count('id')) 
     
-    grade_dict = dict()
+    grade_dict = {}
     
     #for grade in Student.grade:
     #    grade_dict[grade[1]] = 0 
     
     for group in grouped_grades: 
-        grade_dict[dict(Student.grade)[group["grade"]]] = group["count"]
+        grade_dict[group['grade']] = group['count']
         
     return JsonResponse({
         "title": f"Registered grades in {year}", 
@@ -96,3 +95,6 @@ def student_grade_chart(request, year):
             }]
         },
     })
+    
+def statistics_view(request): 
+    return render(request, "statistics.html", {})
