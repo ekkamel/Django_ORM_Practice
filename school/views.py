@@ -73,7 +73,9 @@ def get_filter_options(request):
 
 def student_grade_chart(request, year): 
     grades = Student.objects.filter(reg_date__year=year)
-    grouped_grades = Student.objects.values('grade').annotate(count=Count('id')) 
+    grouped_grades = grades.values("grade").annotate(count=Count("id")).values("grade", "count").order_by("grade")
+    
+    #grouped_grades = Student.objects.values('grade').annotate(count=Count('id')) 
     
     grade_dict = {}
     
