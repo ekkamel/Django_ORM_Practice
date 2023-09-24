@@ -157,6 +157,9 @@
 
 
       function loadAllCharts(year) {
+        loadChart(salesChart, `/grade-chart/${year}/`);
+        loadChart(spendPerCustomerChart, `/grade-chart/${year}/`);
+        loadChart(paymentSuccessChart, `/grade-chart/${year}/`);
         loadChart(paymentMethodChart, `/grade-chart/${year}/`);
       }
 </script>    
