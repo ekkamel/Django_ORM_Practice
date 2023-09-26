@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>        
+        <title>OOP</title>
+
+        <script type="text/javascript">
+            function Student(first, last, id, english, math, science) 
+            {
+                this.fname = first; 
+                this.lname = last; 
+                this.id = id; 
+                this.markE = english; 
+                this.markM = math; 
+                this.markS = science; 
+                this.calculateAverage = function() 
+                {
+                    return(this.markE + this.markM + this.markS)/3;
+                }
+                this.displayDetails = function()
+                {
+                    document.write("Student id: " + this.id + "</br>"); 
+                    document.write("Student name: "+ this.fname + " " + this.lname + "</br>");
+                    var avg = this.calculateAverage();
+                    document.write("Average mark: " + avg + "</br></br>");
+                }
+            } 
+            var st1 = new Student("John", "Smith", 15, 85, 79, 90);
+            var st2 = new Student("Hannah", "Turner", 23, 75, 80, 82);
+            var st3 = new Student("Kevin", "White", 4, 93, 89, 90);
+            var st4 = new Student("Rose", "Taylor", 11, 55, 63, 45);
+            st1.displayDetails();
+            st2.displayDetails();
+            st3.displayDetails();
+            st4.displayDetails();            
+        </script>
+        
+    </head>
+    <body>
+        
+    </body>
+</html>

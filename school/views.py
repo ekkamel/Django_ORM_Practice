@@ -100,3 +100,21 @@ def student_grade_chart(request, year):
     
 def statistics_view(request): 
     return render(request, "statistics.html", {})
+
+
+## 2 cards across the screen example 
+def cards(request):
+    cards = [
+        {
+            'title': 'Card 1',
+            'description': 'This is the first card.',
+            'image': 'https://example.com/image1.jpg',
+        },
+        {
+            'title': 'Card 2',
+            'description': 'This is the second card.',
+            'image': 'https://example.com/image2.jpg',
+        },
+    ]
+
+    return render(request, 'cards.html', {'cards': cards})
