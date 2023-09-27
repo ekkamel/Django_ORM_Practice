@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>My first js peoject</title>
+    <script type="text/javascript">
+        // Create date object 
+        var day = new Date();
+        // Use getday function to obtain today's date 
+        var today = day.getDay();
+        
+        //translate the day number into a week day 
+        var weekday = new Array(7); 
+        weekday[0]="Sunday"; 
+        weekday[1]="Monday"; 
+        weekday[2]="Tuesday"; 
+        weekday[3]="Wednesday"; 
+        weekday[4]="Thursday";
+        weekday[5]="Friday";
+        weekday[6]="Saturday";
+
+        document.write("Today's date is " + weekday[today]);
+
+        // To get full data in Js
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1;
+        var year = currentDate.getFullYear();
+        var monthName;
+	
+        var hours = currentDate.getHours(); 
+        var mins = currentDate.getMinutes(); 
+        var secs = currentDate.getSeconds(); 
+        var strToAppend;
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
